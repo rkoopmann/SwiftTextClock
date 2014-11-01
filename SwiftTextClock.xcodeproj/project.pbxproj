@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4CBBC7311A05698F00B21E33 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBC7301A05698F00B21E33 /* CharacterView.swift */; };
+		4CBBC7611A057CD400B21E33 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CBBC7601A057CD400B21E33 /* LaunchScreen.xib */; };
 		4CD23A2D1A05367E0093FD08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD23A2C1A05367E0093FD08 /* AppDelegate.swift */; };
 		4CD23A2F1A05367E0093FD08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD23A2E1A05367E0093FD08 /* ViewController.swift */; };
 		4CD23A321A05367E0093FD08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD23A301A05367E0093FD08 /* Main.storyboard */; };
 		4CD23A341A05367E0093FD08 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CD23A331A05367E0093FD08 /* Images.xcassets */; };
-		4CD23A371A05367E0093FD08 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CD23A351A05367E0093FD08 /* LaunchScreen.xib */; };
 		4CD23A431A05367E0093FD08 /* SwiftTextClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD23A421A05367E0093FD08 /* SwiftTextClockTests.swift */; };
+		4CD23A4D1A0536A50093FD08 /* TextClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD23A4C1A0536A50093FD08 /* TextClockView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +28,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4CBBC7301A05698F00B21E33 /* CharacterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
+		4CBBC7601A057CD400B21E33 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		4CD23A271A05367E0093FD08 /* SwiftTextClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftTextClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CD23A2B1A05367E0093FD08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CD23A2C1A05367E0093FD08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CD23A2E1A05367E0093FD08 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4CD23A311A05367E0093FD08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CD23A331A05367E0093FD08 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		4CD23A361A05367E0093FD08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4CD23A3C1A05367E0093FD08 /* SwiftTextClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftTextClockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CD23A411A05367E0093FD08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CD23A421A05367E0093FD08 /* SwiftTextClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTextClockTests.swift; sourceTree = "<group>"; };
+		4CD23A4C1A0536A50093FD08 /* TextClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextClockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +81,14 @@
 		4CD23A291A05367E0093FD08 /* SwiftTextClock */ = {
 			isa = PBXGroup;
 			children = (
+				4CBBC7601A057CD400B21E33 /* LaunchScreen.xib */,
 				4CD23A2C1A05367E0093FD08 /* AppDelegate.swift */,
 				4CD23A2E1A05367E0093FD08 /* ViewController.swift */,
 				4CD23A301A05367E0093FD08 /* Main.storyboard */,
 				4CD23A331A05367E0093FD08 /* Images.xcassets */,
-				4CD23A351A05367E0093FD08 /* LaunchScreen.xib */,
 				4CD23A2A1A05367E0093FD08 /* Supporting Files */,
+				4CD23A4C1A0536A50093FD08 /* TextClockView.swift */,
+				4CBBC7301A05698F00B21E33 /* CharacterView.swift */,
 			);
 			path = SwiftTextClock;
 			sourceTree = "<group>";
@@ -193,7 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CD23A321A05367E0093FD08 /* Main.storyboard in Resources */,
-				4CD23A371A05367E0093FD08 /* LaunchScreen.xib in Resources */,
+				4CBBC7611A057CD400B21E33 /* LaunchScreen.xib in Resources */,
 				4CD23A341A05367E0093FD08 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,7 +218,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CD23A4D1A0536A50093FD08 /* TextClockView.swift in Sources */,
 				4CD23A2F1A05367E0093FD08 /* ViewController.swift in Sources */,
+				4CBBC7311A05698F00B21E33 /* CharacterView.swift in Sources */,
 				4CD23A2D1A05367E0093FD08 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,14 +250,6 @@
 				4CD23A311A05367E0093FD08 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		4CD23A351A05367E0093FD08 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4CD23A361A05367E0093FD08 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -407,6 +407,7 @@
 				4CD23A481A05367E0093FD08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CD23A491A05367E0093FD08 /* Build configuration list for PBXNativeTarget "SwiftTextClockTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +416,7 @@
 				4CD23A4B1A05367E0093FD08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

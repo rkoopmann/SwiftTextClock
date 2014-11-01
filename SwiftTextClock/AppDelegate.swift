@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Disable the idle function so we can use it as a clock.
+        UIApplication.sharedApplication().idleTimerDisabled = true
+        
         return true
     }
 
