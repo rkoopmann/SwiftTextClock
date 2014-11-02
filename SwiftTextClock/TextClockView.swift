@@ -11,7 +11,7 @@ import UIKit
 class TextClockView: UIView {
     
     let ON_ALPHA:CGFloat = 1.0                      // Brightness of the highlighted digits
-    let OFF_ALPHA:CGFloat = 0.1                     // Brightness of the powered off digits
+    let OFF_ALPHA:CGFloat = 0.25                    // Brightness of the powered off digits
     let FADE_SPEED:NSTimeInterval = 1.0             // The fade speed when the digits change
     let TEXT_COLOR = UIColor.whiteColor()           // Color of the digits
 
