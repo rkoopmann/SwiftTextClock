@@ -11,7 +11,7 @@ import UIKit
 class TextClockView: UIView {
     
     let ON_ALPHA:CGFloat = 1.0                      // Brightness of the highlighted digits
-    let OFF_ALPHA:CGFloat = 0.25                    // Brightness of the powered off digits
+    let OFF_ALPHA:CGFloat = 0.20                    // Brightness of the powered off digits
     let FADE_SPEED:NSTimeInterval = 1.0             // The fade speed when the digits change
     let TEXT_COLOR = UIColor.whiteColor()           // Color of the digits
 
@@ -50,6 +50,9 @@ class TextClockView: UIView {
     
     // Create an Array to store all the references to the views.
     var characterViews = [CharacterView]();
+    
+    // Create a instance variable for the last displayed time.
+    var lastDisplayedTimeString = ""
     
     /**
     Overwrite all the to run setup when they are initialised. 
@@ -148,8 +151,16 @@ class TextClockView: UIView {
         let now = NSDate()
         let humanString = now.humanStringWithHourIdentifier(HOUR_IDENTIFIER)
         
-        // Show the human string in the TextClockView
-        showString(humanString)
+        //check if we need to update
+        if humanString != lastDisplayedTimeString {
+        
+            // Show the human string in the TextClockView
+            showString(humanString)
+            
+            //Set the lastDisplayedTimeString
+            lastDisplayedTimeString = humanString
+            
+        }
 
     }
     
