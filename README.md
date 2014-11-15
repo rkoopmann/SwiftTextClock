@@ -20,3 +20,7 @@ This is just a quick experiment. So be gentle. ;)
 ## Contributing
 
 Forks, patches and other feedback are welcome.
+
+## Available in the App Store
+
+This app is available for free in the [App Store](http://itunes.apple.com/us/app/textclock-human-readable-clock/id936453602) now! 
