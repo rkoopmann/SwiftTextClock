@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:SwiftTextClock.xcodeproj">
+      location = "self:/Users/Michael/iOS-Development/Experiments/SwiftTextClock/TextClock.xcodeproj">
    </FileRef>
 </Workspace>

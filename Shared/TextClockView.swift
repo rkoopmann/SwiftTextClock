@@ -14,6 +14,8 @@ class TextClockView: UIView {
     let OFF_ALPHA:CGFloat = 0.15                    // Brightness of the powered off digits
     let FADE_SPEED:NSTimeInterval = 1.0             // The fade speed when the digits change
     let TEXT_COLOR = UIColor.whiteColor()           // Color of the digits
+    
+    let DOT_SIZE:CGFloat = 0.02                     // Size of the dots. 1 = as large as the full view.
 
     // Define the rows of characters
     let characters = [
@@ -50,9 +52,11 @@ class TextClockView: UIView {
     
     // Create an Array to store all the references to the views.
     var characterViews = [CharacterView]();
+    var dotViews = [DotView]()
     
     // Create a instance variable for the last displayed time.
     var lastDisplayedTimeString = ""
+    var lastRemainingMinutes = -1
     
     /**
     Overwrite all the to run setup when they are initialised. 
@@ -91,6 +95,15 @@ class TextClockView: UIView {
             rowIndex++;
         }
         
+        for dotIndex in 0..<4 {
+            
+            let dotView = createDotView(dotIndex)
+            dotViews.append(dotView)
+        
+        }
+        
+        
+        
         // If the setup is done, run update to show the current time.
         update()
     }
@@ -120,7 +133,7 @@ class TextClockView: UIView {
         let heightFactor:CGFloat = 1.0 / CGFloat(characters.count)
         
         // Unfortunatly, constrainst don't allow a multiplier of 0 anymore. Adding 0.0000001 is a dirty workaround.
-        let topFactor:CGFloat = 1.0 / CGFloat(characters.count) * CGFloat(rowIndex) + 0.00000000000001
+        let topFactor:CGFloat = 1.0 / CGFloat(characters.count) * CGFloat(rowIndex) * (1 - DOT_SIZE * 3) + 0.00000000000001
         let leftFactor:CGFloat =  1.0 / CGFloat(characters[rowIndex].characters.count) * CGFloat(characterIndex) + 0.00000000000001
         
         // Add the constraints to position and size the character to the right posistion
@@ -130,8 +143,6 @@ class TextClockView: UIView {
             NSLayoutConstraint(item: characterView, attribute: .Left, relatedBy: .Equal, toItem: self, attribute: .Right, multiplier: leftFactor, constant: 0),
             NSLayoutConstraint(item: characterView, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Bottom, multiplier: topFactor, constant: 0)
         ])
-        
-
         
         // Set the text, color and alpha
         characterView.text = String(char)
@@ -143,6 +154,40 @@ class TextClockView: UIView {
     }
     
     /**
+     To create the characterViews, we use a function that does all the work including adding the constraints.
+     
+     @param char:Character       The character we want to display.
+     @param rowIndex:Int         The row of the character.
+     @param characterIndex:Int   The index of the character in the current row.
+     
+     @return The CharacterView that is created for the character.
+     */
+    func createDotView(index:Int) -> DotView {
+        
+        //Create a view and add it to self.
+        let dotView = DotView()
+        addSubview(dotView)
+        
+        // Disable the automatic constraints
+        dotView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add the constraints to position and size the dot to the right posistion
+        addConstraints([
+            NSLayoutConstraint(item: dotView, attribute: .Width, relatedBy: .Equal, toItem: self, attribute: .Width, multiplier: DOT_SIZE, constant: 0),
+            NSLayoutConstraint(item: dotView, attribute: .Height, relatedBy: .Equal, toItem: self, attribute: .Height, multiplier: DOT_SIZE, constant: 0),
+            NSLayoutConstraint(item: dotView, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1 + ((CGFloat(index) - 1.5) * DOT_SIZE * 4), constant: 0),
+            NSLayoutConstraint(item: dotView, attribute: .Bottom, relatedBy: .Equal, toItem: self, attribute: .Bottom, multiplier: 1, constant: 0)
+        ])
+        
+        // Set the text, color and alpha
+        dotView.color = TEXT_COLOR
+        dotView.alpha = 0 //we start with an alpha of 0, it will be faded in on update.
+        
+        // Return the view
+        return dotView
+    }
+    
+    /**
     Update the view with the current time.
     */
     
@@ -151,6 +196,7 @@ class TextClockView: UIView {
         // Generate the current timestamp and transform it to a human string
         let now = NSDate()
         let humanString = now.humanStringWithHourIdentifier(HOUR_IDENTIFIER)
+        let remainingMinutes = now.remainingMinutes()
         
         //check if we need to update
         if humanString != lastDisplayedTimeString {
@@ -161,6 +207,10 @@ class TextClockView: UIView {
             //Set the lastDisplayedTimeString
             lastDisplayedTimeString = humanString
             
+        }
+        
+        if remainingMinutes != lastRemainingMinutes {
+            showDots(remainingMinutes)
         }
 
     }
@@ -187,6 +237,27 @@ class TextClockView: UIView {
         
         }, completion: nil)
         
+    }
+    
+    /**
+     Show the dots.
+     
+     @param numberOfDots:Int    The number of dots we want to show.
+     */
+    func showDots(numberOfDots:Int) {
+        UIView.animateWithDuration(1, delay: 0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
+            
+            // Dimm all the views
+            for dotView in self.dotViews {
+                dotView.alpha = self.OFF_ALPHA
+            }
+            
+            // Highlight the correct dots
+            for dotIndex in 0..<numberOfDots {
+                self.dotViews[dotIndex].alpha = self.ON_ALPHA
+            }
+            
+        }, completion: nil)
     }
     
     /**
@@ -255,7 +326,7 @@ extension NSDate {
         // Convert the hour and minutes to rounded numbers
         // For the minutes, these wil be rounded to a 5 minute interval.
         let hour = components.hour % 12
-        let roundedMinutes = Int(round(Float(components.minute) / 5.0) * 5)
+        let roundedMinutes = Int(floor(Float(components.minute) / 5.0) * 5)
         
         // If we have a string for the minutes, add it to the humanString.
         if let minuteString = minuteStrings[roundedMinutes] {
@@ -274,5 +345,26 @@ extension NSDate {
         
         // Return the final string.
         return humanString
+    }
+    
+    /**
+     Get the remaining unmentioned minutes which are not accounted for in humanStringWithHourIdentifier()
+     
+     @return Thenumber of unmentioned minutes.
+     */
+    func remainingMinutes() -> Int {
+        // Create a calender object we need to extract the hour and minutes of the current NSDate object
+        let calendar = NSCalendar.currentCalendar()
+        
+        // Extract the components we need
+        let components = calendar.components(([.Hour, .Minute, .Second]), fromDate: self)
+
+        // Calculate the rounded minutes, based on a 5 minute interval.
+        let roundedMinutes = Int(floor(Float(components.minute) / 5.0) * 5)
+
+        // Calculate the cemaining minutes.
+        let remainingMinutes =  components.minute - roundedMinutes
+        
+        return remainingMinutes
     }
 }

@@ -11,8 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     // Set config constants
-    let SCREEN_PADDING:CGFloat = 20 // set this to change the margin around the clock
-    let GESTURE_FACTOR:CGFloat = 2  // set this to change the factor of the gesture movement
+    var GESTURE_FACTOR:CGFloat = 2  // set this to change the factor of the gesture movement
     
     // Create the TextClockView.
     let textClockView = TextClockView()
@@ -41,18 +40,6 @@ class ViewController: UIViewController {
             NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: "BRIGHTNESS_VALUE")
             NSUserDefaults.standardUserDefaults().synchronize()
         }
-    }
-
-    /**
-    Do we want to show the status bar?
-    
-    @return bool defining the prefered hidden status
-    */
-    override func prefersStatusBarHidden() -> Bool {
-        
-        //disable the status bar
-        return true
-        
     }
     
     /**
@@ -90,21 +77,12 @@ class ViewController: UIViewController {
         //Disable the automatic constraints
         textClockView.translatesAutoresizingMaskIntoConstraints = false
         
-        // Add the contraints to make the width less than or equal of the height of the superview and vice versa
-        view.addConstraint(NSLayoutConstraint(item: textClockView, attribute: .Height, relatedBy: .LessThanOrEqual, toItem: view, attribute: .Width, multiplier: 1, constant: (0 - SCREEN_PADDING * 2)))
-        view.addConstraint(NSLayoutConstraint(item: textClockView, attribute: .Width, relatedBy: .LessThanOrEqual, toItem: view, attribute: .Height, multiplier: 1, constant: (0 - SCREEN_PADDING * 2)))
-        
-        // Set the height en width, but use a lower priority then above layout constraints
-        // Usign this technique, it will always be a fitting square
-        let widthConstraint = NSLayoutConstraint(item: textClockView, attribute: .Width, relatedBy: .Equal, toItem: view, attribute: .Width, multiplier: 1, constant: (0 - SCREEN_PADDING * 2))
-        let heightConstraint = NSLayoutConstraint(item: textClockView, attribute: .Height, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 1, constant: (0 - SCREEN_PADDING * 2))
-        widthConstraint.priority -= 1
-        heightConstraint.priority -= 1
-        view.addConstraints([widthConstraint, heightConstraint])
-        
-        // Center the TextClockView
-        view.addConstraint(NSLayoutConstraint(item: textClockView, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: textClockView, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0))
+        view.addConstraints([
+            NSLayoutConstraint(item: textClockView, attribute: .Height, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: textClockView, attribute: .Width, relatedBy: .Equal, toItem: view, attribute: .Width, multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: textClockView, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: textClockView, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0)
+        ])
         
     }
     

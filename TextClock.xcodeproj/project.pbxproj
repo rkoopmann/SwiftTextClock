@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		4C3BB2681BEB8EF300B8730F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3BB2671BEB8EF300B8730F /* AppDelegate.swift */; };
-		4C3BB26A1BEB8EF300B8730F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3BB2691BEB8EF300B8730F /* ViewController.swift */; };
 		4C3BB26D1BEB8EF300B8730F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C3BB26B1BEB8EF300B8730F /* Main.storyboard */; };
 		4C3BB26F1BEB8EF300B8730F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C3BB26E1BEB8EF300B8730F /* Assets.xcassets */; };
 		4C3BB2751BEB8F7800B8730F /* TextClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD23A4C1A0536A50093FD08 /* TextClockView.swift */; };
 		4C3BB2761BEB8F7B00B8730F /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBC7301A05698F00B21E33 /* CharacterView.swift */; };
+		4C3BB2781BEBB38100B8730F /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3BB2771BEBB38100B8730F /* DotView.swift */; };
+		4C3BB2791BEBDB8D00B8730F /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3BB2771BEBB38100B8730F /* DotView.swift */; };
+		4C7050A31BEBDCCD00A33F34 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C7050A21BEBDCCD00A33F34 /* Default-568h@2x.png */; };
+		4C7050A51BEBDDC200A33F34 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7050A41BEBDDC200A33F34 /* MainViewController.swift */; };
+		4C7050A61BEBDE1000A33F34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD23A2E1A05367E0093FD08 /* ViewController.swift */; };
+		4C7050A81BEBDEC200A33F34 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7050A71BEBDEC200A33F34 /* MainViewController.swift */; };
 		4CBBC7311A05698F00B21E33 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBC7301A05698F00B21E33 /* CharacterView.swift */; };
-		4CBBC7611A057CD400B21E33 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CBBC7601A057CD400B21E33 /* LaunchScreen.xib */; };
 		4CD23A2D1A05367E0093FD08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD23A2C1A05367E0093FD08 /* AppDelegate.swift */; };
 		4CD23A2F1A05367E0093FD08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD23A2E1A05367E0093FD08 /* ViewController.swift */; };
 		4CD23A321A05367E0093FD08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD23A301A05367E0093FD08 /* Main.storyboard */; };
@@ -25,19 +29,21 @@
 /* Begin PBXFileReference section */
 		4C3BB2651BEB8EF300B8730F /* TextClock Apple TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TextClock Apple TV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C3BB2671BEB8EF300B8730F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4C3BB2691BEB8EF300B8730F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4C3BB26C1BEB8EF300B8730F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C3BB26E1BEB8EF300B8730F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C3BB2701BEB8EF300B8730F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4CBBC7301A05698F00B21E33 /* CharacterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterView.swift; path = SwiftTextClock/CharacterView.swift; sourceTree = "<group>"; };
-		4CBBC7601A057CD400B21E33 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
-		4CD23A271A05367E0093FD08 /* SwiftTextClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftTextClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4CD23A2B1A05367E0093FD08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C3BB2771BEBB38100B8730F /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DotView.swift; path = Shared/DotView.swift; sourceTree = "<group>"; };
+		4C7050A21BEBDCCD00A33F34 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		4C7050A41BEBDDC200A33F34 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4C7050A71BEBDEC200A33F34 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4CBBC7301A05698F00B21E33 /* CharacterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterView.swift; path = Shared/CharacterView.swift; sourceTree = "<group>"; };
+		4CD23A271A05367E0093FD08 /* TextClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CD23A2B1A05367E0093FD08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = "TextClock iOS/Info.plist"; sourceTree = "<group>"; };
 		4CD23A2C1A05367E0093FD08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4CD23A2E1A05367E0093FD08 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4CD23A2E1A05367E0093FD08 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Shared/ViewController.swift; sourceTree = "<group>"; };
 		4CD23A311A05367E0093FD08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CD23A331A05367E0093FD08 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		4CD23A4C1A0536A50093FD08 /* TextClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextClockView.swift; path = SwiftTextClock/TextClockView.swift; sourceTree = "<group>"; };
+		4CD23A4C1A0536A50093FD08 /* TextClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextClockView.swift; path = Shared/TextClockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				4C3BB2671BEB8EF300B8730F /* AppDelegate.swift */,
-				4C3BB2691BEB8EF300B8730F /* ViewController.swift */,
+				4C7050A41BEBDDC200A33F34 /* MainViewController.swift */,
 				4C3BB26B1BEB8EF300B8730F /* Main.storyboard */,
 				4C3BB26E1BEB8EF300B8730F /* Assets.xcassets */,
 				4C3BB2701BEB8EF300B8730F /* Info.plist */,
@@ -75,6 +81,8 @@
 			children = (
 				4CD23A4C1A0536A50093FD08 /* TextClockView.swift */,
 				4CBBC7301A05698F00B21E33 /* CharacterView.swift */,
+				4C3BB2771BEBB38100B8730F /* DotView.swift */,
+				4CD23A2E1A05367E0093FD08 /* ViewController.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -82,8 +90,9 @@
 		4CD23A1E1A05367E0093FD08 = {
 			isa = PBXGroup;
 			children = (
+				4C7050A21BEBDCCD00A33F34 /* Default-568h@2x.png */,
 				4C3BB2741BEB8F6500B8730F /* Shared */,
-				4CD23A291A05367E0093FD08 /* SwiftTextClock */,
+				4CD23A291A05367E0093FD08 /* TextClock iOS */,
 				4C3BB2661BEB8EF300B8730F /* TextClock Apple TV */,
 				4CD23A281A05367E0093FD08 /* Products */,
 			);
@@ -92,23 +101,22 @@
 		4CD23A281A05367E0093FD08 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4CD23A271A05367E0093FD08 /* SwiftTextClock.app */,
+				4CD23A271A05367E0093FD08 /* TextClock.app */,
 				4C3BB2651BEB8EF300B8730F /* TextClock Apple TV.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4CD23A291A05367E0093FD08 /* SwiftTextClock */ = {
+		4CD23A291A05367E0093FD08 /* TextClock iOS */ = {
 			isa = PBXGroup;
 			children = (
-				4CBBC7601A057CD400B21E33 /* LaunchScreen.xib */,
 				4CD23A2C1A05367E0093FD08 /* AppDelegate.swift */,
-				4CD23A2E1A05367E0093FD08 /* ViewController.swift */,
+				4C7050A71BEBDEC200A33F34 /* MainViewController.swift */,
 				4CD23A301A05367E0093FD08 /* Main.storyboard */,
 				4CD23A331A05367E0093FD08 /* Images.xcassets */,
 				4CD23A2A1A05367E0093FD08 /* Supporting Files */,
 			);
-			path = SwiftTextClock;
+			path = "TextClock iOS";
 			sourceTree = "<group>";
 		};
 		4CD23A2A1A05367E0093FD08 /* Supporting Files */ = {
@@ -116,7 +124,7 @@
 			children = (
 				4CD23A2B1A05367E0093FD08 /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,9 +147,9 @@
 			productReference = 4C3BB2651BEB8EF300B8730F /* TextClock Apple TV.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4CD23A261A05367E0093FD08 /* SwiftTextClock */ = {
+		4CD23A261A05367E0093FD08 /* TextClock iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4CD23A461A05367E0093FD08 /* Build configuration list for PBXNativeTarget "SwiftTextClock" */;
+			buildConfigurationList = 4CD23A461A05367E0093FD08 /* Build configuration list for PBXNativeTarget "TextClock iOS" */;
 			buildPhases = (
 				4CD23A231A05367E0093FD08 /* Sources */,
 				4CD23A241A05367E0093FD08 /* Frameworks */,
@@ -151,9 +159,9 @@
 			);
 			dependencies = (
 			);
-			name = SwiftTextClock;
+			name = "TextClock iOS";
 			productName = SwiftTextClock;
-			productReference = 4CD23A271A05367E0093FD08 /* SwiftTextClock.app */;
+			productReference = 4CD23A271A05367E0093FD08 /* TextClock.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -172,10 +180,11 @@
 					};
 					4CD23A261A05367E0093FD08 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 9ZW6KB2LSP;
 					};
 				};
 			};
-			buildConfigurationList = 4CD23A221A05367E0093FD08 /* Build configuration list for PBXProject "SwiftTextClock" */;
+			buildConfigurationList = 4CD23A221A05367E0093FD08 /* Build configuration list for PBXProject "TextClock" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -188,7 +197,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4CD23A261A05367E0093FD08 /* SwiftTextClock */,
+				4CD23A261A05367E0093FD08 /* TextClock iOS */,
 				4C3BB2641BEB8EF300B8730F /* TextClock Apple TV */,
 			);
 		};
@@ -209,7 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CD23A321A05367E0093FD08 /* Main.storyboard in Resources */,
-				4CBBC7611A057CD400B21E33 /* LaunchScreen.xib in Resources */,
+				4C7050A31BEBDCCD00A33F34 /* Default-568h@2x.png in Resources */,
 				4CD23A341A05367E0093FD08 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,10 +230,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C7050A61BEBDE1000A33F34 /* ViewController.swift in Sources */,
 				4C3BB2751BEB8F7800B8730F /* TextClockView.swift in Sources */,
-				4C3BB26A1BEB8EF300B8730F /* ViewController.swift in Sources */,
 				4C3BB2761BEB8F7B00B8730F /* CharacterView.swift in Sources */,
+				4C7050A51BEBDDC200A33F34 /* MainViewController.swift in Sources */,
 				4C3BB2681BEB8EF300B8730F /* AppDelegate.swift in Sources */,
+				4C3BB2791BEBDB8D00B8730F /* DotView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +246,9 @@
 				4CD23A4D1A0536A50093FD08 /* TextClockView.swift in Sources */,
 				4CD23A2F1A05367E0093FD08 /* ViewController.swift in Sources */,
 				4CBBC7311A05698F00B21E33 /* CharacterView.swift in Sources */,
+				4C7050A81BEBDEC200A33F34 /* MainViewController.swift in Sources */,
 				4CD23A2D1A05367E0093FD08 /* AppDelegate.swift in Sources */,
+				4C3BB2781BEBB38100B8730F /* DotView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,11 +393,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = SwiftTextClock/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "TextClock iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.xonaymedia.textclock;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "482e8a04-6321-4e3b-a191-7ff92cad69ed";
+				PRODUCT_NAME = TextClock;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -392,11 +407,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = SwiftTextClock/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "TextClock iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.xonaymedia.textclock;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "482e8a04-6321-4e3b-a191-7ff92cad69ed";
+				PRODUCT_NAME = TextClock;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -410,8 +427,9 @@
 				4C3BB2731BEB8EF300B8730F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		4CD23A221A05367E0093FD08 /* Build configuration list for PBXProject "SwiftTextClock" */ = {
+		4CD23A221A05367E0093FD08 /* Build configuration list for PBXProject "TextClock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4CD23A441A05367E0093FD08 /* Debug */,
@@ -420,7 +438,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4CD23A461A05367E0093FD08 /* Build configuration list for PBXNativeTarget "SwiftTextClock" */ = {
+		4CD23A461A05367E0093FD08 /* Build configuration list for PBXNativeTarget "TextClock iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4CD23A471A05367E0093FD08 /* Debug */,
