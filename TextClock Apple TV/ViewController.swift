@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  SwiftTextClock
+//  TextClock
 //
-//  Created by Michael Teeuw on 01-11-14.
-//  Copyright (c) 2014 Michael Teeuw. All rights reserved.
+//  Created by Michael Teeuw on 05-11-15.
+//  Copyright © 2015 Michael Teeuw. All rights reserved.
 //
 
 import UIKit
@@ -42,35 +42,23 @@ class ViewController: UIViewController {
             NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
-
-    /**
-    Do we want to show the status bar?
-    
-    @return bool defining the prefered hidden status
-    */
-    override func prefersStatusBarHidden() -> Bool {
-        
-        //disable the status bar
-        return true
-        
-    }
     
     /**
-    What to do when the view controller is loaded?
-    */
+     What to do when the view controller is loaded?
+     */
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         // Set the background color of the application
         updateBackgroundColor()
-    
+        
         // Add the TextClockView to the main view
         view.addSubview(textClockView)
-
+        
         // Add the constraints to make is a square in the center
         addConstraints()
-    
+        
         // Create a timer to update it every second
         NSTimer.scheduledTimerWithTimeInterval(1, target: textClockView, selector: "update", userInfo: nil, repeats: true)
         
@@ -79,32 +67,23 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(gesture)
         
     }
-
+    
     /**
-    Add the constraints to the textClockView to make it a square in the center. 
-    It uses some heavy AutoLayout Magic. Whenever the screen size changes, everything remains ok.
-    Of course, there is a much simpeler way to do this, but I just wanted to demonstrate the possibility ... :)
-    */
+     Add the constraints to the textClockView to make it a square in the center.
+     It uses some heavy AutoLayout Magic. Whenever the screen size changes, everything remains ok.
+     Of course, there is a much simpeler way to do this, but I just wanted to demonstrate the possibility ... :)
+     */
     func addConstraints() {
         
         //Disable the automatic constraints
         textClockView.translatesAutoresizingMaskIntoConstraints = false
         
-        // Add the contraints to make the width less than or equal of the height of the superview and vice versa
-        view.addConstraint(NSLayoutConstraint(item: textClockView, attribute: .Height, relatedBy: .LessThanOrEqual, toItem: view, attribute: .Width, multiplier: 1, constant: (0 - SCREEN_PADDING * 2)))
-        view.addConstraint(NSLayoutConstraint(item: textClockView, attribute: .Width, relatedBy: .LessThanOrEqual, toItem: view, attribute: .Height, multiplier: 1, constant: (0 - SCREEN_PADDING * 2)))
-        
-        // Set the height en width, but use a lower priority then above layout constraints
-        // Usign this technique, it will always be a fitting square
-        let widthConstraint = NSLayoutConstraint(item: textClockView, attribute: .Width, relatedBy: .Equal, toItem: view, attribute: .Width, multiplier: 1, constant: (0 - SCREEN_PADDING * 2))
-        let heightConstraint = NSLayoutConstraint(item: textClockView, attribute: .Height, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 1, constant: (0 - SCREEN_PADDING * 2))
-        widthConstraint.priority -= 1
-        heightConstraint.priority -= 1
-        view.addConstraints([widthConstraint, heightConstraint])
-        
-        // Center the TextClockView
-        view.addConstraint(NSLayoutConstraint(item: textClockView, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: textClockView, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0))
+        view.addConstraints([
+            NSLayoutConstraint(item: textClockView, attribute: .Height, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 1, constant: (0 - SCREEN_PADDING * 2)),
+            NSLayoutConstraint(item: textClockView, attribute: .Width, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 1, constant: (0 - SCREEN_PADDING * 2)),
+            NSLayoutConstraint(item: textClockView, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: textClockView, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0)
+        ])
         
     }
     
@@ -128,7 +107,7 @@ class ViewController: UIViewController {
         if (hue > 1) {
             hue -= 1
         }
-
+        
         // If the hue is smaller than 0, add 1.
         if (hue < 0) {
             hue += 1
@@ -151,9 +130,9 @@ class ViewController: UIViewController {
         gesture.setTranslation(CGPointZero, inView: view)
     }
     
-    /** 
-    Update the view based on the hue and brightness
-    */
+    /**
+     Update the view based on the hue and brightness
+     */
     func updateBackgroundColor() {
         view.backgroundColor = UIColor(hue: hue, saturation: 1, brightness: brightness, alpha: 1)
     }

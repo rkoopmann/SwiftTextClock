@@ -11,7 +11,7 @@ import UIKit
 class TextClockView: UIView {
     
     let ON_ALPHA:CGFloat = 1.0                      // Brightness of the highlighted digits
-    let OFF_ALPHA:CGFloat = 0.20                    // Brightness of the powered off digits
+    let OFF_ALPHA:CGFloat = 0.15                    // Brightness of the powered off digits
     let FADE_SPEED:NSTimeInterval = 1.0             // The fade speed when the digits change
     let TEXT_COLOR = UIColor.whiteColor()           // Color of the digits
 
@@ -58,13 +58,8 @@ class TextClockView: UIView {
     Overwrite all the to run setup when they are initialised. 
     This is only nessecery for the coder & frame initializers.
     */
-    
-    override init()
-    {
-        super.init()
-    }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup();
     }
@@ -85,7 +80,7 @@ class TextClockView: UIView {
             
             // Loop thru all the characters
             var characterIndex = 0;
-            for character in row {
+            for character in row.characters {
                 
                 // Create the views and add them to the characterViews Array.
                 let characterView = createCharacterView(character, rowIndex: rowIndex, characterIndex: characterIndex)
@@ -116,21 +111,27 @@ class TextClockView: UIView {
         addSubview(characterView)
         
         // Disable the automatic constraints
-        characterView.setTranslatesAutoresizingMaskIntoConstraints(false);
+        characterView.translatesAutoresizingMaskIntoConstraints = false;
         
         // Calculate the sizing factors we need for the autoloayout constraints
         // This we we know where to position the views
-        let widthFactor:CGFloat = 1.0 / CGFloat(countElements(characters[0]))
+        
+        let widthFactor:CGFloat = 1.0 / CGFloat(characters[rowIndex].characters.count)
         let heightFactor:CGFloat = 1.0 / CGFloat(characters.count)
         
-        let topFactor:CGFloat = 1.0 / CGFloat(characters.count) * CGFloat(rowIndex)
-        let leftFactor:CGFloat =  1.0 / CGFloat(countElements(characters[0])) * CGFloat(characterIndex)
+        // Unfortunatly, constrainst don't allow a multiplier of 0 anymore. Adding 0.0000001 is a dirty workaround.
+        let topFactor:CGFloat = 1.0 / CGFloat(characters.count) * CGFloat(rowIndex) + 0.00000000000001
+        let leftFactor:CGFloat =  1.0 / CGFloat(characters[rowIndex].characters.count) * CGFloat(characterIndex) + 0.00000000000001
         
         // Add the constraints to position and size the character to the right posistion
-        self.addConstraint(NSLayoutConstraint(item: characterView, attribute: .Width, relatedBy: .Equal, toItem: self, attribute: .Width, multiplier: widthFactor, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: characterView, attribute: .Height, relatedBy: .Equal, toItem: self, attribute: .Height, multiplier: heightFactor, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: characterView, attribute: .Left, relatedBy: .Equal, toItem: self, attribute: .Right, multiplier: leftFactor, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: characterView, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Bottom, multiplier: topFactor, constant: 0))
+        addConstraints([
+            NSLayoutConstraint(item: characterView, attribute: .Width, relatedBy: .Equal, toItem: self, attribute: .Width, multiplier: widthFactor, constant: 0),
+            NSLayoutConstraint(item: characterView, attribute: .Height, relatedBy: .Equal, toItem: self, attribute: .Height, multiplier: heightFactor, constant: 0),
+            NSLayoutConstraint(item: characterView, attribute: .Left, relatedBy: .Equal, toItem: self, attribute: .Right, multiplier: leftFactor, constant: 0),
+            NSLayoutConstraint(item: characterView, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Bottom, multiplier: topFactor, constant: 0)
+        ])
+        
+
         
         // Set the text, color and alpha
         characterView.text = String(char)
@@ -203,7 +204,7 @@ class TextClockView: UIView {
         if let wordIndex = words[word] {
             
             // Loop thru all the characters of the word
-            for index in 0..<countElements(strippedWord) {
+            for index in 0..<strippedWord.characters.count {
                 
                 // Get the characterView and change the alpha
                 let characterView = characterViews[wordIndex + index]
@@ -249,7 +250,7 @@ extension NSDate {
         let calendar = NSCalendar.currentCalendar()
         
         // Extract the components we need
-        let components = calendar.components((.CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond), fromDate: self)
+        let components = calendar.components(([.Hour, .Minute, .Second]), fromDate: self)
         
         // Convert the hour and minutes to rounded numbers
         // For the minutes, these wil be rounded to a 5 minute interval.

@@ -15,12 +15,8 @@ class CharacterView: UILabel {
     /**
     Overwrite the initialisers. Two of them will start the setup.
     */
-    override init()
-    {
-        super.init()
-    }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup();
     }
