@@ -27,7 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4C3BB2651BEB8EF300B8730F /* TextClock Apple TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TextClock Apple TV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C3BB2651BEB8EF300B8730F /* TextClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C3BB2671BEB8EF300B8730F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C3BB26C1BEB8EF300B8730F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C3BB26E1BEB8EF300B8730F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				4CD23A271A05367E0093FD08 /* TextClock.app */,
-				4C3BB2651BEB8EF300B8730F /* TextClock Apple TV.app */,
+				4C3BB2651BEB8EF300B8730F /* TextClock.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,7 +144,7 @@
 			);
 			name = "TextClock Apple TV";
 			productName = "TextClock Apple TV";
-			productReference = 4C3BB2651BEB8EF300B8730F /* TextClock Apple TV.app */;
+			productReference = 4C3BB2651BEB8EF300B8730F /* TextClock.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4CD23A261A05367E0093FD08 /* TextClock iOS */ = {
@@ -177,6 +177,7 @@
 				TargetAttributes = {
 					4C3BB2641BEB8EF300B8730F = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 9ZW6KB2LSP;
 					};
 					4CD23A261A05367E0093FD08 = {
 						CreatedOnToolsVersion = 6.1;
@@ -279,12 +280,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "TextClock Apple TV/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.xonaymedia.textclock;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TextClock;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
@@ -296,13 +300,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "TextClock Apple TV/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.xonaymedia.textclock;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TextClock;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
